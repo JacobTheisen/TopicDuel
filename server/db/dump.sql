@@ -22,7 +22,7 @@ CREATE TABLE GameLog (
     id TEXT NOT NULL,
     joinid INT NOT NULL,
     mapid INT NOT NULL,
-    host TEXT NOT NULL,
+    hostid TEXT NOT NULL,
     timestamp_utc TIMESTAMP WITH TIME ZONE,
     winner TEXT,
     gametime INT,
@@ -57,6 +57,9 @@ ALTER TABLE ONLY UsersInGame
 
 ALTER TABLE ONLY GameLog
     ADD CONSTRAINT game_mapid_fk FOREIGN KEY (mapid) REFERENCES Games(id);
+
+ALTER TABLE ONLY GameLog
+    ADD CONSTRAINT user_hostid_fk FOREIGN KEY (hostid) REFERENCES Users(id);
 
 ALTER TABLE ONLY GameAnswers
     ADD CONSTRAINT answer_game_fk FOREIGN KEY (gameid) REFERENCES Games(id);

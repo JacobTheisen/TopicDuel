@@ -15,6 +15,7 @@ class PlayerScore(BaseModel):
     pts: int
 
 class Choices(Enum):
+    pre = "pre"
     start = 'start'
     options = 'options'
     live = "live"
